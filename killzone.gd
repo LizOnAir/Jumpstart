@@ -1,9 +1,10 @@
 extends Area2D
 
-@onready var timer: Timer = $"../Timer"
 @onready var gameover: AudioStreamPlayer2D = $"../Player/Gameover"
+@onready var timer: Timer = $Timer
 
-func _on_body_entered(body: Node2D):
+
+func _on_body_entered(_body: Node2D):
 	timer.start()
 	gameover.play()
 

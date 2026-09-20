@@ -451,5 +451,9 @@ script = ExtResource("4_lquwl")
 position = Vector2(-840, 1218)
 shape = SubResource("WorldBoundaryShape2D_nvm7t")
 
-[node name="Timer" type="Timer" parent="." unique_id=1346973924]
+[node name="Timer" type="Timer" parent="Killzone" unique_id=1346973924]
 one_shot = true
+
+[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]
+[connection signal="timeout" from="Killzone/Timer" to="Killzone" method="_on_timer_timeout"]
+[connection signal="tree_entered" from="Killzone/Timer" to="Killzone" method="_on_timer_tree_entered"]
