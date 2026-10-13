@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dy7vde88dls4e"]
+
+[ext_resource type="Texture2D" uid="uid://dcflccnarj8ya" path="res://Bg/plx-1.png" id="1_1yvor"]
+[ext_resource type="Texture2D" uid="uid://b6sm5to1huvq6" path="res://Bg/plx-2.png" id="2_wfgfm"]
+[ext_resource type="Texture2D" uid="uid://bcf0b0to54bpa" path="res://Bg/plx-3.png" id="3_ogskg"]
+[ext_resource type="Texture2D" uid="uid://oj0oqyqxw2os" path="res://Bg/plx-4.png" id="4_c2602"]
+[ext_resource type="Texture2D" uid="uid://gu1emnpmkcmk" path="res://Bg/plx-5.png" id="5_1a5a0"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1yvor"]
+load_path = "res://.godot/imported/Screenshot 2026-10-12 at 9.46.31 PM.png-cb0ff801f56d7ec01e190dad012212be.ctex"
+
+[node name="ParallaxBackground" type="ParallaxBackground" unique_id=964562980]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="." unique_id=901962115]
+position = Vector2(-846, -2)
+motion_offset = Vector2(0.5, 0)
+motion_mirroring = Vector2(1100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer" unique_id=750947603]
+position = Vector2(573.50006, 323.25003)
+scale = Vector2(3.013021, 3.0023148)
+texture = ExtResource("1_1yvor")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="." unique_id=1604532309]
+position = Vector2(-846, -2)
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2" unique_id=1017497186]
+position = Vector2(573.50006, 323.25003)
+scale = Vector2(3.013021, 3.0023148)
+texture = ExtResource("2_wfgfm")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="." unique_id=1528595272]
+position = Vector2(-846, -2)
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3" unique_id=1618791151]
+position = Vector2(573.50006, 323.25003)
+scale = Vector2(3.013021, 3.0023148)
+texture = ExtResource("3_ogskg")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="." unique_id=891109142]
+position = Vector2(-846, -2)
+motion_mirroring = Vector2(1100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4" unique_id=62587574]
+position = Vector2(573.50006, 323.25003)
+scale = Vector2(3.013021, 3.0023148)
+texture = ExtResource("4_c2602")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="." unique_id=628861100]
+position = Vector2(-846, -2)
+motion_scale = Vector2(1.5, 1)
+motion_mirroring = Vector2(1100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5" unique_id=786594465]
+position = Vector2(573.50006, 323.25003)
+scale = Vector2(3.013021, 3.0023148)
+texture = ExtResource("5_1a5a0")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="." unique_id=867941875]
+position = Vector2(-846, -2)
+motion_scale = Vector2(1.5, 1)
+motion_mirroring = Vector2(1100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6" unique_id=1112897603]
+position = Vector2(1010, -808.82983)
+scale = Vector2(3.013021, 5.4909534)
+texture = SubResource("CompressedTexture2D_1yvor")

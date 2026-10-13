@@ -1,13 +1,15 @@
 extends Area2D
 
-@onready var gameover: AudioStreamPlayer2D = $"../Player/Gameover"
 @onready var timer: Timer = $Timer
-
+@onready var gameover: AudioStreamPlayer = $"../../GameOver"
 
 func _on_body_entered(_body: Node2D):
-	timer.start()
-	gameover.play()
+	if _body.name == "Player":
+		gameover.play()
+		NewAutoloadScript.playeralive = false
+		timer.start()
 
 func _on_timer_timeout() -> void:
-	await gameover.finished
+	NewAutoloadScript.playeralive = true
 	get_tree().reload_current_scene()
+		

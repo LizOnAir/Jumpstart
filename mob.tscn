@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://bh00dbk2cav3b"]
+
+[ext_resource type="Texture2D" uid="uid://dw4tupvmrkcqr" path="res://Mob/Dude_Monster_Idle_4.png" id="1_nokgg"]
+[ext_resource type="Texture2D" uid="uid://bp0gr4vhm1fsp" path="res://Mob/Dude_Monster_Run_6.png" id="2_ubaqv"]
+[ext_resource type="Script" uid="uid://ta4x2wvti7l7" path="res://killzone.gd" id="3_p11y5"]
+[ext_resource type="AudioStream" uid="uid://cu8hmnn88u73d" path="res://GameOver.mp3" id="3_ubaqv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11y5"]
+atlas = ExtResource("1_nokgg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5nov"]
+atlas = ExtResource("1_nokgg")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3mxk"]
+atlas = ExtResource("1_nokgg")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qmh0"]
+atlas = ExtResource("1_nokgg")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfurk"]
+atlas = ExtResource("2_ubaqv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieysi"]
+atlas = ExtResource("2_ubaqv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cixyi"]
+atlas = ExtResource("2_ubaqv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ulmv"]
+atlas = ExtResource("2_ubaqv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcqmr"]
+atlas = ExtResource("2_ubaqv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbnni"]
+atlas = ExtResource("2_ubaqv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nvm7t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p11y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5nov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3mxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qmh0")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfurk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieysi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cixyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ulmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcqmr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbnni")
+}],
+"loop": 1,
+"name": &"Run",
+"speed": 9.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
+size = Vector2(15.857147, 26.09523)
+
+[node name="Mob" type="Node2D" unique_id=1336594753]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2105139693]
+position = Vector2(90, 76)
+scale = Vector2(2.625, 2.625)
+sprite_frames = SubResource("SpriteFrames_nvm7t")
+animation = &"Idle"
+frame_progress = 0.23413576
+
+[node name="Killzone" type="Area2D" parent="AnimatedSprite2D" unique_id=1638375176]
+script = ExtResource("3_p11y5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Killzone" unique_id=1748487354]
+position = Vector2(0.07144165, 2.952385)
+shape = SubResource("RectangleShape2D_efxa6")
+
+[node name="Timer" type="Timer" parent="AnimatedSprite2D/Killzone" unique_id=38008768]
+one_shot = true
+
+[node name="GameOver" type="AudioStreamPlayer" parent="." unique_id=413086754]
+stream = ExtResource("3_ubaqv")
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=326077927]
+position = Vector2(89, 78)
+target_position = Vector2(-27, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1378724051]
+position = Vector2(91, 75)
+target_position = Vector2(23, 0)
+
+[connection signal="body_entered" from="AnimatedSprite2D/Killzone" to="AnimatedSprite2D/Killzone" method="_on_body_entered"]
+[connection signal="timeout" from="AnimatedSprite2D/Killzone/Timer" to="AnimatedSprite2D/Killzone" method="_on_timer_timeout"]
+[connection signal="tree_entered" from="AnimatedSprite2D/Killzone/Timer" to="AnimatedSprite2D/Killzone" method="_on_timer_tree_entered"]
